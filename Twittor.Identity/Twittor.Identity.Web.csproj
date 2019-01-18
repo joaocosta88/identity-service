@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AspNetCoreHostingModel>inprocess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Twittor.Identity.Infrastructure\Twittor.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="..\Twittor.Identity.Services\Twittor.Identity.Services.csproj" />
+  </ItemGroup>
+
+</Project>
