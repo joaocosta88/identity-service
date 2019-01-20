@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Twitter.Identity.DataAccess.Entities;
+using Twittor.Identity.DataAccess.Entities;
 
 namespace Twittor.Identity.Services
 {
