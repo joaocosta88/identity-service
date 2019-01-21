@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Twittor.Identity.DataAccess;
 using Twittor.Identity.DataAccess.Entities;
 
@@ -18,11 +19,11 @@ namespace Twittor.Identity.Services
             return DataContext.Users;
         }
 
-        public void CreateUser()
+        public async Task CreateUser()
         {
-            DataContext.Users.Add(new User()
+            await DataContext.Users.AddAsync(new User()
             {
-
+                Email = "testing"
             });
 
             DataContext.SaveChanges();

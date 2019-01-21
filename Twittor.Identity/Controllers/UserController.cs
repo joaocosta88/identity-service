@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using Twittor.Identity.Services;
 
 namespace Twittor.Identity.Controllers
@@ -14,7 +15,14 @@ namespace Twittor.Identity.Controllers
 
         public IActionResult Get()
         {
-            return Ok();
+            var users = UserService.GetAll();
+            return Ok(users.ToList());
+        }
+
+        public IActionResult Add()
+        {
+            var user = UserService.CreateUser();
+            return RedirectToAction("Get");
         }
     }
 }

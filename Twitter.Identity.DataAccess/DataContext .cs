@@ -7,6 +7,9 @@ namespace Twittor.Identity.DataAccess
     {
         public DbSet<User> Users { get; set; }
 
+        public DataContext(DbContextOptions options)
+            :base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
