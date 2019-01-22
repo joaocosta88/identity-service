@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Twittor.Identity.DataAccess;
+using Twittor.Identity.Repository;
+using Twittor.Identity.Repository.Interfaces;
 using Twittor.Identity.Services;
 
 namespace Twittor.Identity.Infrastructure
@@ -15,6 +17,7 @@ namespace Twittor.Identity.Infrastructure
 
             //configureDI
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
     }
 }

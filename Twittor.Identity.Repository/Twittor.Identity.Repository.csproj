@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Twitter.Identity.DataAccess\Twitter.Identity.DataAccess.csproj" />
-    <ProjectReference Include="..\Twittor.Identity.Repository\Twittor.Identity.Repository.csproj" />
-    <ProjectReference Include="..\Twittor.Identity.Services\Twittor.Identity.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Web", "Twittor.Identity\Twittor.Identity.Web.csproj", "{6D848B27-5544-4492-B381-C81C83BE3A40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twittor.Identity.Services", "Twittor.Identity.Services\Twittor.Identity.Services.csproj", "{3C44516E-F5D5-4336-969C-EA914878BCE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Services", "Twittor.Identity.Services\Twittor.Identity.Services.csproj", "{3C44516E-F5D5-4336-969C-EA914878BCE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitter.Identity.DataAccess", "Twitter.Identity.DataAccess\Twitter.Identity.DataAccess.csproj", "{5118C0BD-5705-485C-BB53-CC2FECC03231}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Identity.DataAccess", "Twitter.Identity.DataAccess\Twitter.Identity.DataAccess.csproj", "{5118C0BD-5705-485C-BB53-CC2FECC03231}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twittor.Identity.Infrastructure", "Twittor.Identity.Infrastructure\Twittor.Identity.Infrastructure.csproj", "{F14C8A38-FD10-43BA-B621-0BF22A01D3F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Infrastructure", "Twittor.Identity.Infrastructure\Twittor.Identity.Infrastructure.csproj", "{F14C8A38-FD10-43BA-B621-0BF22A01D3F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twittor.Identity.Repository", "Twittor.Identity.Repository\Twittor.Identity.Repository.csproj", "{294BFA0C-76E6-4770-9E83-D6EC1FF644E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F14C8A38-FD10-43BA-B621-0BF22A01D3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F14C8A38-FD10-43BA-B621-0BF22A01D3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F14C8A38-FD10-43BA-B621-0BF22A01D3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294BFA0C-76E6-4770-9E83-D6EC1FF644E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294BFA0C-76E6-4770-9E83-D6EC1FF644E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294BFA0C-76E6-4770-9E83-D6EC1FF644E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294BFA0C-76E6-4770-9E83-D6EC1FF644E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
