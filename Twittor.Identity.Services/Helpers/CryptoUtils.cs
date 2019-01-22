@@ -1,12 +1,15 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 
 namespace Twittor.Identity.Services.Helpers
 {
     public static class CryptoUtils
     {
-        private const int SALT_LENGTH = 128 / 8; // 128 bits
+        private const int SALT_BYTE_SIZE = 24;
+        private const int HASH_BYTE_SIZE = 20; // to match the size of the PBKDF2-HMAC-SHA-1 hash 
+        private const int ITERATIONS_COUNT = 10000;
 
-        public static (string hashedPassword, string salt) HashPassword(string password)
+        public static (string hashedPassword, byte[] salt) HashPassword(string password)
         {
             var salt = CreateSalt();
             var hashedPassword = HashPassword(password, salt);
@@ -16,19 +19,22 @@ namespace Twittor.Identity.Services.Helpers
 
         public static string HashPassword(string password, byte[] salt)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password, salt);
+            using (var pdkdf2 = new Rfc2898DeriveBytes(password, salt, ITERATIONS_COUNT))
+            {
+                var hashedPwd = pdkdf2.GetBytes(HASH_BYTE_SIZE);
+                return Convert.ToBase64String(hashedPwd);
+            }
         }
 
-        private static string CreateSalt()
+        private static byte[] CreateSalt()
         {
             //Generate a cryptographic random number.
-            //RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            //byte[] buff = new byte[SALT_LENGTH];
-            //rng.GetBytes(buff);
-
-            //return buff;
-
-            BCrypt.Net.BCrypt.GenerateSalt();
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                byte[] buff = new byte[SALT_BYTE_SIZE];
+                rng.GetBytes(buff);
+                return buff;
+            }
         }
     }
 }
