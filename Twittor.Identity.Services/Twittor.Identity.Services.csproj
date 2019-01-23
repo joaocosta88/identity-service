@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BCrypt.Net-Next" Version="3.1.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Twittor.Identity.Repository\Twittor.Identity.Repository.csproj" />
   </ItemGroup>
 

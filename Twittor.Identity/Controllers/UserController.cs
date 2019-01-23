@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
 using Twittor.Identity.Services;
+using Twittor.Identity.Web.Models;
 
 namespace Twittor.Identity.Controllers
 {
@@ -14,9 +14,35 @@ namespace Twittor.Identity.Controllers
             UserService = userService;
         }
 
-        public async Task<IActionResult> Add(string email, string password)
+        [HttpPost]
+        public async Task<IActionResult> Authenticate([FromBody]AuthenticateUserModel model)
         {
-            var user = await UserService.CreateUser(email, password);
+            if (model == null || string.IsNullOrWhiteSpace(model.Email) || string.IsNullOrWhiteSpace(model.Password))
+            {
+                return new BadRequestResult();
+            }
+            if (await UserService.FindUserByEmailAsync(model.Email) == null)
+            {
+                return new BadRequestResult();
+            }
+
+            var isUserPassword = await UserService.IsUserPassword(model.Email, model.Password);
+            return new JsonResult(isUserPassword);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody]RegisterUserModel model)
+        {
+            if (model == null || string.IsNullOrWhiteSpace(model.Email) || string.IsNullOrWhiteSpace(model.Password))
+            {
+                return new BadRequestResult();
+            }
+            if (await UserService.FindUserByEmailAsync(model.Email) != null)
+            {
+                return new BadRequestResult();
+            }
+
+            var user = await UserService.CreateUser(model.Email, model.Password);
             return new JsonResult(user);
         }
     }

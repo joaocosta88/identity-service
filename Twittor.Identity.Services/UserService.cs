@@ -45,15 +45,26 @@ namespace Twittor.Identity.Services
                 throw new ArgumentException("Password format is not valid");
             }
 
-            bool hasUser = await UserRepository.FindUserAsync(email) != null;
-            if (hasUser)
+            var hashedPasswordWithSalt = CryptoUtils.HashPassword(password);
+            var user = new User(email, hashedPasswordWithSalt.hashedPassword, hashedPasswordWithSalt.salt);
+            return await UserRepository.SaveUserAsync(user);
+        }
+
+        public async Task<bool> IsUserPassword(string email, string password)
+        {
+            if(string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentException("Email already registered");
+                throw new ArgumentException();
             }
 
-            var cypherPasswordWithSalt = CryptoUtils.HashPassword(password);
-            var user = new User(email, cypherPasswordWithSalt.hashedPassword, cypherPasswordWithSalt.salt);
-            return await UserRepository.SaveUserAsync(user);
+            var user = await UserRepository.FindUserAsync(email);
+            if (user == null)
+            {
+                throw new ArgumentException();
+            }
+
+            var hashedPassword = CryptoUtils.HashPassword(password, user.Salt);
+            return hashedPassword == user.Password;
         }
     }
 }
