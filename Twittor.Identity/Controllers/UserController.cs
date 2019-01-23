@@ -14,16 +14,10 @@ namespace Twittor.Identity.Controllers
             UserService = userService;
         }
 
-        public IActionResult Get()
+        public async Task<IActionResult> Add(string email, string password)
         {
-            var users = UserService.GetAll();
-            return Ok(users.ToList());
-        }
-
-        public async Task<IActionResult> Add()
-        {
-            await UserService.CreateUser(null);
-            return RedirectToAction("Get");
+            var user = await UserService.CreateUser(email, password);
+            return new JsonResult(user);
         }
     }
 }

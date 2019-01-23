@@ -6,7 +6,6 @@ namespace Twittor.Identity.Services
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAll();
-        Task CreateUser(User user);
+        Task<User> CreateUser(string email, string password);
     }
 }
