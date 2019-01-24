@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Infrastruc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Repository", "Twittor.Identity.Repository\Twittor.Identity.Repository.csproj", "{294BFA0C-76E6-4770-9E83-D6EC1FF644E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twittor.Identity.Services.Tests", "Twittor.Identity.Services.Tests\Twittor.Identity.Services.Tests.csproj", "{7881BA8F-4DE8-4DEB-BBA7-CC059A0F3C54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Services.Tests", "Twittor.Identity.Services.Tests\Twittor.Identity.Services.Tests.csproj", "{7881BA8F-4DE8-4DEB-BBA7-CC059A0F3C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twittor.Identity.JWT", "Twittor.Identity.JWT\Twittor.Identity.JWT.csproj", "{10790F99-1512-45BD-A63C-31CB40047FB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7881BA8F-4DE8-4DEB-BBA7-CC059A0F3C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7881BA8F-4DE8-4DEB-BBA7-CC059A0F3C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7881BA8F-4DE8-4DEB-BBA7-CC059A0F3C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10790F99-1512-45BD-A63C-31CB40047FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10790F99-1512-45BD-A63C-31CB40047FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10790F99-1512-45BD-A63C-31CB40047FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10790F99-1512-45BD-A63C-31CB40047FB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

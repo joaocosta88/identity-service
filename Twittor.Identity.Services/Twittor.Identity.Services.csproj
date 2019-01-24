@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Twittor.Identity.JWT\Twittor.Identity.JWT.csproj" />
     <ProjectReference Include="..\Twittor.Identity.Repository\Twittor.Identity.Repository.csproj" />
   </ItemGroup>
 

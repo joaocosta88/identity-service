@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Twittor.Identity.JWT;
 using Twittor.Identity.Services;
 using Twittor.Identity.Web.Models;
 
@@ -8,10 +9,12 @@ namespace Twittor.Identity.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService UserService;
+        private readonly JWTGenerator JWTGenerator;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, JWTGenerator jwtGenerator)
         {
             UserService = userService;
+            JWTGenerator = jwtGenerator;
         }
 
         [HttpPost]
@@ -26,8 +29,17 @@ namespace Twittor.Identity.Controllers
                 return new BadRequestResult();
             }
 
-            var isUserPassword = await UserService.IsUserPassword(model.Email, model.Password);
-            return new JsonResult(isUserPassword);
+            if (!await UserService.IsUserPassword(model.Email, model.Password))
+            {
+                return new BadRequestResult();
+            }
+
+            var authToken = JWTGenerator.GenerateToken(model.Email);
+            return new JsonResult(
+                new
+                {
+                    token = authToken
+                });
         }
 
         [HttpPost]
