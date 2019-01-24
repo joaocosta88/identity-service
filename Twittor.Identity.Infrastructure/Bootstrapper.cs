@@ -35,6 +35,8 @@ namespace Twittor.Identity.Infrastructure
 
                 return new JWTGenerator(encoder, key);
             });
+
+   
         }
     }
 }

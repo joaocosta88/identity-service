@@ -6,6 +6,8 @@ using Twittor.Identity.Web.Models;
 
 namespace Twittor.Identity.Controllers
 {
+    [ApiController]
+    [Route("user")]
     public class UserController : ControllerBase
     {
         private readonly IUserService UserService;
@@ -18,6 +20,7 @@ namespace Twittor.Identity.Controllers
         }
 
         [HttpPost]
+        [Route("authenticate")]
         public async Task<IActionResult> Authenticate([FromBody]AuthenticateUserModel model)
         {
             if (model == null || string.IsNullOrWhiteSpace(model.Email) || string.IsNullOrWhiteSpace(model.Password))
@@ -43,6 +46,7 @@ namespace Twittor.Identity.Controllers
         }
 
         [HttpPost]
+        [Route("register")]
         public async Task<IActionResult> Register([FromBody]RegisterUserModel model)
         {
             if (model == null || string.IsNullOrWhiteSpace(model.Email) || string.IsNullOrWhiteSpace(model.Password))
