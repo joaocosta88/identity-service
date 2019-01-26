@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Twittor.Identity.DataAccess.Entities;
 using Twittor.Identity.Repository.Interfaces;
 using Twittor.Identity.Services.Helpers;
+using Twittor.Identity.Services.Models;
 using Twittor.Identity.Services.Validators;
 
 namespace Twittor.Identity.Services
@@ -11,13 +11,13 @@ namespace Twittor.Identity.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository UserRepository;
-        
+
         public UserService(IUserRepository userRepository)
         {
             UserRepository = userRepository;
         }
 
-        public async Task<User> FindUserByEmailAsync(string email)
+        public async Task<UserDTO> FindUserByEmailAsync(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -26,10 +26,11 @@ namespace Twittor.Identity.Services
 
             email = email.Trim();
 
-            return await UserRepository.FindUserAsync(email);
+            var user = await UserRepository.FindUserAsync(email);
+            return user != null ? new UserDTO(user.Email, user.Password) : null;
         }
 
-        public async Task<User> CreateUser(string email, string password)
+        public async Task<UserDTO> CreateUser(string email, string password)
         {
             //validate email
             email = email.Trim();
@@ -47,12 +48,14 @@ namespace Twittor.Identity.Services
 
             var hashedPasswordWithSalt = CryptoUtils.HashPassword(password);
             var user = new User(email, hashedPasswordWithSalt.hashedPassword, hashedPasswordWithSalt.salt);
-            return await UserRepository.SaveUserAsync(user);
+            var savedUser = await UserRepository.SaveUserAsync(user);
+
+            return savedUser != null ? new UserDTO(savedUser.Email, savedUser.Password) : null;
         }
 
         public async Task<bool> IsUserPassword(string email, string password)
         {
-            if(string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 throw new ArgumentException();
             }

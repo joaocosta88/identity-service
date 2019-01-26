@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
-using Twittor.Identity.DataAccess.Entities;
+using Twittor.Identity.Services.Models;
 
 namespace Twittor.Identity.Services
 {
     public interface IUserService
     {
-        Task<User> FindUserByEmailAsync(string email);
-        Task<User> CreateUser(string email, string password);
+        Task<UserDTO> FindUserByEmailAsync(string email);
+        Task<UserDTO> CreateUser(string email, string password);
         Task<bool> IsUserPassword(string email, string password);
     }
 }
