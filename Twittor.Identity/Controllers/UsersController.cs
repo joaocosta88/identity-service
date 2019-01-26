@@ -7,13 +7,13 @@ using Twittor.Identity.Web.Models;
 namespace Twittor.Identity.Controllers
 {
     [ApiController]
-    [Route("user")]
-    public class UserController : ControllerBase
+    [Route("users")]
+    public class UsersController : ControllerBase
     {
         private readonly IUserService UserService;
         private readonly JWTGenerator JWTGenerator;
 
-        public UserController(IUserService userService, JWTGenerator jwtGenerator)
+        public UsersController(IUserService userService, JWTGenerator jwtGenerator)
         {
             UserService = userService;
             JWTGenerator = jwtGenerator;

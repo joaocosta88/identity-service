@@ -31,12 +31,10 @@ namespace Twittor.Identity.Infrastructure
                 IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
                 IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
 
-                string key = "";
+                string key = configuration.GetValue<string>("JWTHMACSHA256Key");
 
                 return new JWTGenerator(encoder, key);
-            });
-
-   
+            });   
         }
     }
 }
