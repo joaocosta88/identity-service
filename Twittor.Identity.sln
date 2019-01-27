@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Web", "Twi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Services", "Twittor.Identity.Services\Twittor.Identity.Services.csproj", "{3C44516E-F5D5-4336-969C-EA914878BCE7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twitter.Identity.DataAccess", "Twitter.Identity.DataAccess\Twitter.Identity.DataAccess.csproj", "{5118C0BD-5705-485C-BB53-CC2FECC03231}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.DataAccess", "Twittor.Identity.DataAccess\Twittor.Identity.DataAccess.csproj", "{5118C0BD-5705-485C-BB53-CC2FECC03231}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twittor.Identity.Infrastructure", "Twittor.Identity.Infrastructure\Twittor.Identity.Infrastructure.csproj", "{F14C8A38-FD10-43BA-B621-0BF22A01D3F9}"
 EndProject
