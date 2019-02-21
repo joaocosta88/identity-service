@@ -1,1 +1,2 @@
-docker run -d -p 8080:80 --name myapp aspnetapp
+docker build .
+docker run -d -p 57002:80 --name identity

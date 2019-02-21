@@ -1,2 +1,2 @@
-# twittor-identity
-User managament for twittor project
+# identity experiment
+Small identity service for user management

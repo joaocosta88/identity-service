@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Identity.DataAccess\Identity.DataAccess.csproj" />
+    <ProjectReference Include="..\Identity.Repository\Identity.Repository.csproj" />
+    <ProjectReference Include="..\Identity.Services\Identity.Services.csproj" />
+  </ItemGroup>
+
+</Project>

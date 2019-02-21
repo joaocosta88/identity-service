@@ -1,0 +1,70 @@
+{
+	"info": {
+		"name": "Identity",
+		"_postman_id": "90316ca3-703e-16fe-c5a3-c2b28f2721d4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Identity - user registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"testing.email.registration@email.com\",\n\t\"password\":\"123123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57002/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57002",
+					"path": [
+						"user",
+						"register"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Identity - user authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"testing.email.registration@email.com\",\n\t\"password\":\"123123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57002/user/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57002",
+					"path": [
+						"user",
+						"authenticate"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
